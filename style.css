@@ -506,6 +506,19 @@ h2 {
   justify-content: center; /* optional: center align */
 }
 
+.viewed-btn {
+  background-color: #eb0915;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.viewed {
+  color: green;
+  font-weight: bold;
+}
 
 
 /* ANIMATIONS */

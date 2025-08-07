@@ -1,65 +1,78 @@
 // src/components/Patients/PatientList.js
 import React, { useEffect, useState } from "react";
+import { ScanCommand, UpdateItemCommand } from "@aws-sdk/client-dynamodb";
+import { ddbClient } from "../../aws-config";
 import "../../style.css";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const PatientList = () => {
   const navigate = useNavigate();
   const [patients, setPatients] = useState([]);
-  const [editingIndex, setEditingIndex] = useState(null);
-  const [editData, setEditData] = useState({});
+  const [loading, setLoading] = useState(true); // NEW
 
   useEffect(() => {
-    const storedPatients = JSON.parse(localStorage.getItem("patients")) || [];
-    setPatients(storedPatients);
+    const fetchPatients = async () => {
+      try {
+        const data = await ddbClient.send(
+          new ScanCommand({ TableName: "Patients" })
+        );
+        const formatted = data.Items.map((item) => ({
+          patientId: item.patientId.S,  
+          fullName: item.fullName.S,
+          age: item.age.N,
+          gender: item.gender.S,
+          condition: item.condition.S,
+          phone: item.phone.S,
+          viewed: item.viewed?.BOOL || false,
+        }));
+        setPatients(formatted);
+      } catch (error) {
+        console.error("Failed to fetch patients", error);
+        toast.error("⚠️ Could not load patients");
+      }
+      finally {
+      setLoading(false); // ✅ Done loading
+    }
+    };
+
+    fetchPatients();
   }, []);
 
-  const handleBack = () => {
-    navigate('/dashboard');
+  const markAsViewed = async (patientId, index) => {
+    try {
+      await ddbClient.send(
+        new UpdateItemCommand({
+          TableName: "Patients",
+          Key: { patientId: { S: patientId } },
+          UpdateExpression: "SET viewed = :v",
+          ExpressionAttributeValues: {
+            ":v": { BOOL: true },
+          },
+        })
+      );
+
+      const updated = [...patients];
+      updated[index].viewed = true;
+      setPatients(updated);
+
+      toast.success("👁️ Marked as viewed");
+    } catch (err) {
+      console.error("Error updating viewed status:", err);
+      toast.error("❌ Failed to update status");
+    }
   };
 
-  const handleEdit = (index) => {
-    setEditingIndex(index);
-    setEditData(patients[index]);
-  };
-
-  const handleChange = (e) => {
-    setEditData({ ...editData, [e.target.name]: e.target.value });
-  };
-
-  const handleSave = (index) => {
-    const updated = [...patients];
-    updated[index] = editData;
-    setPatients(updated);
-    localStorage.setItem("patients", JSON.stringify(updated));
-    setEditingIndex(null);
-    toast.success("✏️ Patient updated successfully");
-  };
-
-  const handleDelete = (index) => {
-    const updatedPatients = [...patients];
-    updatedPatients.splice(index, 1);
-    setPatients(updatedPatients);
-    localStorage.setItem('patients', JSON.stringify(updatedPatients));
-    toast.info("🗑️ Patient record deleted.");
-  };
-
-  const markAsViewed = (index) => {
-    const updatedPatients = [...patients];
-    updatedPatients[index].viewed = true;
-    setPatients(updatedPatients);
-    localStorage.setItem("patients", JSON.stringify(updatedPatients));
-    toast.info("👁️ Marked as viewed.");
-  };
+  const handleBack = () => navigate('/dashboard');
 
   return (
     <div className="list-container">
       <div className="page-container">
-        <h2>Patient List</h2>
-        {patients.length === 0 ? (
-          <p>No patients added yet.</p>
-        ) : (
+        {loading ? (
+  <p>Loading patients...</p>
+) : patients.length === 0 ? (
+  <p>No patients added yet.</p>
+) : (
           <table className="patient-table">
             <thead>
               <tr>
@@ -70,87 +83,33 @@ const PatientList = () => {
                 <th>Condition</th>
                 <th>Phone</th>
                 <th>Status</th>
-                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              {patients.map((patient, index) => (
+              {patients.map((p, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  {editingIndex === index ? (
-                    <>
-                      <td>
-                        <input
-                          type="text"
-                          name="fullName"
-                          value={editData.fullName}
-                          onChange={handleChange}
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          name="age"
-                          value={editData.age}
-                          onChange={handleChange}
-                        />
-                      </td>
-                      <td>
-                        <select
-                          name="gender"
-                          value={editData.gender}
-                          onChange={handleChange}
-                        >
-                          <option>Male</option>
-                          <option>Female</option>
-                          <option>Other</option>
-                        </select>
-                      </td>
-                      <td>
-                        <input
-                          type="text"
-                          name="condition"
-                          value={editData.condition}
-                          onChange={handleChange}
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="text"
-                          name="phone"
-                          value={editData.phone}
-                          onChange={handleChange}
-                        />
-                      </td>
-                      <td colSpan="2">
-                        <button className="save-btn" onClick={() => handleSave(index)}>💾 Save</button>
-                        <button onClick={() => setEditingIndex(null)}>❌ Cancel</button>
-                      </td>
-                    </>
-                  ) : (
-                    <>
-                      <td>{patient.fullName}</td>
-                      <td>{patient.age}</td>
-                      <td>{patient.gender}</td>
-                      <td>{patient.condition}</td>
-                      <td>{patient.phone}</td>
-                      <td className={patient.viewed ? "viewed" : "not-viewed"}>
-                        {patient.viewed ? "Viewed" : "Not Viewed"}
-                      </td>
-                      <td>
-                        <button className="edit-btn" onClick={() => handleEdit(index)}>✏️ Edit</button>
-                        <button className="delete-btn" onClick={() => handleDelete(index)}>🗑️ Delete</button>
-                        {!patient.viewed && (
-                          <button className="viewed-btn" onClick={() => markAsViewed(index)}>👁️ Mark Viewed</button>
-                        )}
-                      </td>
-                    </>
-                  )}
+                  <td>{p.fullName}</td>
+                  <td>{p.age}</td>
+                  <td>{p.gender}</td>
+                  <td>{p.condition}</td>
+                  <td>{p.phone}</td>
+                  <td>
+  {p.viewed ? (
+    <span className="viewed">👁️ Viewed</span>
+  ) : (
+    <button className="viewed-btn" onClick={() => markAsViewed(p.patientId, index)}>
+      👁️ Mark Viewed
+    </button>
+  )}
+</td>
+
                 </tr>
               ))}
             </tbody>
           </table>
         )}
+
         <div className="button-container">
           <button className="back-button" onClick={handleBack}>
             ⬅️ Back to Dashboard
