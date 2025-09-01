@@ -610,7 +610,61 @@ button.primary:hover {
 button.cancel:hover {
   background-color: #d32f2f;
 }
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  font-weight: bold;
+}
+.navbar .logo {
+  font-size: 22px;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.navbar ul li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.navbar ul li:hover {
+  color: #222;
+}
 
+
+.admin-container {
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.admin-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-container th, .admin-container td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.admin-container th {
+  background: #007bff;
+  color: white;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
 
 /* :root {
   --bg-color: #ffffff;

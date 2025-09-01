@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "../../style.css";
 import { ScanCommand } from "@aws-sdk/client-dynamodb";
 import { ddbClient } from "../../aws-config";
+import Navbar from "../Navbar"; // ✅ import Navbar
 
 const Dashboard = () => {
   const today = new Date().toLocaleDateString();
@@ -37,7 +38,6 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  // Sync visits from localStorage if changed
   useEffect(() => {
     const handleStorageChange = () => {
       setTotalVisits(parseInt(localStorage.getItem("totalVisits")) || 0);
@@ -73,6 +73,9 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard double-light-bg">
+      {/* ✅ Navbar on top */}
+      <Navbar />
+
       <h1 className="dashboard-title">Smart Health Record System</h1>
 
       {/* Navigation Buttons */}
