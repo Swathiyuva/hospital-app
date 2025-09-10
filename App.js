@@ -11,7 +11,7 @@ import PatientForm from "./components/Patients/PatientForm";
 import PatientList from "./components/Patients/PatientList";
 import UploadReport from "./components/Upload/UploadReport";
 import ViewReports from './components/Upload/ViewReports';
-import RecordDetails from "./components/Patients/RecordDetails";
+// import RecordDetails from "./components/Patients/RecordDetails";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         <Route path="/patient-list" element={<PatientList />} />
         <Route path="/upload-report" element={<UploadReport />} />
         <Route path="/view-reports" element={<ViewReports />} />
-        <Route path="/record/:id" element={<RecordDetails />} />
+        {/* <Route path="/record/:id" element={<RecordDetails />} /> */}
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} pauseOnHover />
     </Router>
