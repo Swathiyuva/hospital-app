@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = "us-east-1"   // Change if your S3 bucket is in another region
-        S3_BUCKET = "shrs-health-reports"  // Replace with your bucket name
-        CLOUDFRONT_ID = "E19BLNNL62ZLY5 // Replace with your CloudFront ID
+        S3_BUCKET = "shrs-health-reports"  // Replace with your S3 bucket name
+        CLOUDFRONT_ID = "E19BLNNL62ZLY5"   // Replace with your CloudFront distribution ID
     }
 
     stages {
