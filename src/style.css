@@ -1,0 +1,1183 @@
+/* GLOBAL STYLES */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #fdfbfb, #ebedee);
+  color: #2e2e2e;
+}
+
+/* HEADINGS */
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+  color: #2b2b6d;
+  margin-bottom: 1rem;
+}
+
+/* BUTTONS */
+button {
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #42a5f5, #7e57c2);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #29b6f6, #9575cd);
+  transform: scale(1.05);
+}
+
+/* INPUT FIELDS */
+input, select, textarea {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  transition: 0.3s;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #7e57c2;
+  box-shadow: 0 0 6px #9575cd;
+}
+
+/* FORMS */
+form {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* AUTH PAGES */
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f3e5f5, #e1f5fe);
+  padding: 20px;
+}
+
+.auth-container h2 {
+  color: #4a148c;
+  text-align: center;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.dashboard-btn {
+  background: linear-gradient(135deg, #7f8ff4, #a0c4ff);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.dashboard-btn:hover {
+  background: linear-gradient(135deg, #5d6bf1, #88b4ff);
+  transform: scale(1.05);
+}
+
+/* DASHBOARD */
+.dashboard {
+  padding: 30px;
+  background: linear-gradient(to right, #f9f9f9, #ffffff);
+  color: #1d1f4e;
+  font-family: 'Segoe UI', sans-serif;
+}
+.dashboard-container {
+  background: linear-gradient(to right, #fefefe, #f3f7ff);
+  min-height: 100vh;
+}
+
+
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.metrics {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.metric-card {
+  background: #e0f7fa;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 30px 40px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  background: #b2ebf2;
+}
+
+.metric-card .icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.tip-section {
+  background-color: #fff0f6;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.tip-heading {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #d63384;
+}
+
+.tip-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.tip-date {
+  font-size: 0.9rem;
+  color: #555;
+}
+.viewed {
+  color: green;
+  font-weight: bold;
+}
+
+.not-viewed {
+  color: red;
+  font-weight: bold;
+}
+
+.viewed-btn {
+  background: #2196f3;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  margin-left: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.viewed-btn:hover {
+  background: #1976d2;
+}
+
+.back-button {
+  margin-top: 20px;
+  text-align: center;
+}
+.back-button-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px; /* space from the form */
+}
+
+
+.home-btn {
+  padding: 10px 20px;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.home-btn:hover {
+  opacity: 0.9;
+}
+
+/* STATS CARDS */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.03);
+}
+
+.stat-card h2 {
+  color: #2c3e50;
+  font-size: 20px;
+}
+
+.stat-card p {
+  color: #e91e63;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+/* PATIENT FORM & LIST */
+.container {
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.list-container {
+  padding: 20px;
+  background: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.patient-table th,
+.patient-table td {
+  border: 1px solid #cccccc;
+  padding: 12px;
+  text-align: left;
+}
+
+.patient-table th {
+  background-color: #cdefff;
+  color: #333;
+}
+
+.patient-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.delete-btn {
+  padding: 5px 10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.patient-table input,
+.patient-table select {
+  width: 95%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.edit-btn,
+.save-btn,
+.delete-btn {
+  padding: 5px 8px;
+  margin: 2px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #af4ca7;
+  color: white;
+}
+
+.save-btn {
+  background-color: #f321b1;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+
+
+/* RECORD DETAILS */
+.record-details {
+  max-width: 850px;
+  margin: 30px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+.record-details h3 {
+  color: #2e7d32;
+}
+
+/* UPLOAD REPORT */
+.double-bg {
+  background: linear-gradient(to right, #f2f9ff, #e6ffe6);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.upload-form input[type="file"],
+.upload-form input[type="text"] {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 220px;
+}
+.upload-report {
+  background: linear-gradient(to right, #f0f8ff, #fdfdfd);
+  padding: 30px;
+  min-height: 100vh;
+  border-radius: 12px;
+}
+
+.upload-btn,
+.edit-btn {
+  padding: 8px 16px;
+  margin: 5px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.upload-btn:disabled {
+  background-color: #a5d6a7;
+}
+
+.report-actions button {
+  margin-right: 6px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: none;
+  background-color: #0097a7;
+  color: white;
+  cursor: pointer;
+}
+
+.report-actions button:hover {
+  background-color: #00796b;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.uploaded-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.report-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f3f4f6;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.report-item div {
+  max-width: 70%;
+}
+
+.report-actions button {
+  margin-left: 8px;
+  padding: 5px 8px;
+  border: none;
+  background-color: #4f46e5;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.report-actions button:hover {
+  background-color: #3730a3;
+}
+
+.report-controls, .search-sort {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.search-sort input {
+  height: 40px;
+  width: 250px;
+  padding: 0 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.search-sort button, .upload-btn {
+  padding: 10px 20px;
+  border: none;
+  background: linear-gradient(to right, #4facfe, #6f86d6);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.report-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
+.report-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(to right, #4facfe, #6f86d6);
+  color: white;
+  cursor: pointer;
+}
+.search-box {
+  width: 200px; /* Make it smaller */
+  height: 36px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Container to align it with the sort button */
+.search-sort {
+  display: flex;
+  gap: 19px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: center; /* optional: center align */
+}
+
+.viewed-btn {
+  background-color: #eb0915;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.viewed {
+  color: green;
+  font-weight: bold;
+}
+
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* GENERAL CARD LAYOUT */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+/* Global background for the app */
+body {
+  background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Common container style for all pages */
+.page-container {
+  background-color: #ffffff;
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 16px;
+  max-width: 1000px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #45a049;
+}
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;   /* makes all buttons rounded */
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Primary action buttons (Save, Upload, etc.) */
+button.primary {
+  background-color: #4CAF50;  /* green */
+  color: white;
+}
+
+/* Cancel buttons */
+button.cancel {
+  background-color: #f44336;  /* red */
+  color: white;
+}
+
+/* Hover effects */
+button.primary:hover {
+  background-color: #45a049;
+}
+button.cancel:hover {
+  background-color: #d32f2f;
+}
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  font-weight: bold;
+}
+.navbar .logo {
+  font-size: 22px;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.navbar ul li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.navbar ul li:hover {
+  color: #222;
+}
+
+
+.admin-container {
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.admin-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-container th, .admin-container td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.admin-container th {
+  background: #007bff;
+  color: white;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* ===== Upload Report ===== */
+.upload-report {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.upload-report .section-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.upload-box {
+  border: 2px dashed #90caf9;
+  background: #fafafa;
+  padding: 2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+  background: #e3f2fd;
+  border-color: #42a5f5;
+}
+
+.file-label {
+  font-size: 1rem;
+  color: #616161;
+}
+
+.file-label .browse {
+  color: #42a5f5;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.upload-report input[type="text"] {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.upload-report input[type="text"]:focus {
+  border-color: #42a5f5;
+}
+
+.progress-bar {
+  width: 100%;
+  background: #eee;
+  border-radius: 10px;
+  margin: 1rem 0;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #42a5f5, #81c784);
+  transition: width 0.4s ease;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.upload-btn, .back-button {
+  padding: 0.6rem 1.09rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.upload-btn {
+  background: #42a5f5;
+  color: white;
+}
+
+.upload-btn:hover {
+  background: #1e88e5;
+}
+
+.back-button {
+  background: #f06292;
+  color: white;
+}
+
+.back-button:hover {
+  background: #e91e63;
+}
+
+/* ===== View Reports ===== */
+.view-reports {
+  padding: 2rem;
+  background: linear-gradient(135deg, #fffde7, #e1f5fe);
+  border-radius: 15px;
+  max-width: 1000px;
+  margin: 2rem auto;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.view-reports h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-bar input, .filter-bar select {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.filter-bar input:focus, .filter-bar select:focus {
+  border-color: #42a5f5;
+}
+
+.reports-list {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.report-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.report-card:hover {
+  transform: translateY(-3px);
+}
+
+.report-info {
+  flex: 1;
+}
+
+.report-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #37474f;
+  margin-bottom: 0.5rem;
+}
+
+.report-desc {
+  margin: 0.3rem 0;
+  color: #555;
+}
+
+.report-status {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
+
+.status-reviewed {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: #ef6c00;
+  font-weight: bold;
+}
+
+.report-date {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.report-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.report-actions button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.report-actions button:hover {
+  opacity: 0.85;
+}
+
+.report-actions button:nth-child(1) { background: #42a5f5; color: white; }
+.report-actions button:nth-child(2) { background: #66bb6a; color: white; }
+.report-actions button:nth-child(3) { background: #ef5350; color: white; }
+.report-actions button:nth-child(4) { background: #ffb300; color: white; }
+
+.page-container .back-button {
+  display: block;
+  margin: 2rem auto 0;
+}
+
+/* Upload & View Report Form Styling */
+.form-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  min-height: 70px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-save {
+  background: #2196f3;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-save:hover {
+  background: #1976d2;
+}
+
+.btn-cancel {
+  background: #4caf50;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background: #388e3c;
+}
+
+
+/* Page Container */
+.view-reports.page-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Page Title */
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #2c3e50;
+}
+
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.filter-bar input,
+.filter-bar select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  flex: 1;
+  min-width: 180px;
+}
+
+/* Report Cards */
+.reports-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.report-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+.report-card:hover {
+  background: #f1faff;
+}
+
+/* Report Info */
+.report-info {
+  flex: 2;
+}
+.report-info h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #34495e;
+}
+.report-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+.report-status {
+  margin-top: 8px;
+}
+.status-reviewed {
+  color: #27ae60;
+  font-weight: bold;
+}
+.status-pending {
+  color: #e67e22;
+  font-weight: bold;
+}
+.report-date {
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
+
+/* Edit Mode Inputs */
+.report-info input,
+.report-info select,
+.report-info textarea {
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Actions Section */
+.report-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.report-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Buttons */
+.btn-view { background: #3498db; color: white; }
+.btn-download { background: #2ecc71; color: white; }
+.btn-delete { background: #e74c3c; color: white; }
+.btn-edit { background: #f39c12; color: white; }
+.btn-save { background: #27ae60; color: white; }
+.btn-cancel { background: #95a5a6; color: white; }
+
+.report-actions button:hover {
+  opacity: 0.85;
+}
+
+/* Back Button */
+.button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+.back-button {
+  background: #0db4f7;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.back-button:hover {
+  background: #732d91;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;        /* spacing between buttons */
+  margin-top: 20px;
+}
+
+/* General button style */
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  min-width: 150px;   /* ✅ makes both buttons equal width */
+}
+
+/* Upload Button */
+.upload-button {
+  background: #3498db;
+  color: white;
+}
+.upload-button:hover {
+  background: #217dbb;
+}
+
+/* Back Button */
+.back-button {
+  background: #8e44ad;
+  color: white;
+}
+.back-button:hover {
+  background: #732d91;
+}
+
+
+/* :root {
+  --bg-color: #ffffff;
+  --text-color: #1e1e1e;
+  --card-bg: #f2f2f2;
+  --button-bg: #dcdcdc;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --card-bg: #1e1e1e;
+  --button-bg: #333333;
+}
+
+/* Apply variables globally */
+/* body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+} */ 
+
